@@ -5,7 +5,7 @@ const { protect } = require('../middleware/auth');
 
 router.route('/')
   .get(getTestimonials)
-  .post(protect, createTestimonial);
+  .post(createTestimonial);
 
 router.route('/:id')
   .delete(protect, deleteTestimonial);

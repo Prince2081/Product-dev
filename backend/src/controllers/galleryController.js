@@ -21,6 +21,16 @@ exports.createGallery = async (req, res) => {
   }
 };
 
+// PUT update
+exports.updateGallery = async (req, res) => {
+  try {
+    const updatedData = await Gallery.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updatedData);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 // DELETE
 exports.deleteGallery = async (req, res) => {
   try {
